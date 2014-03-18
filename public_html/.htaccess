@@ -1,0 +1,40 @@
+Options +FollowSymLinks
+php_flag display_startup_errors on
+php_flag display_errors on
+php_flag html_errors on
+
+
+RewriteEngine on
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^page/(.+)$ $1.php [L,QSA]
+RewriteRule ^planket/*$ index.php?page=wall [L,QSA]
+RewriteRule ^planket/skriv*$ board_edit.php [L,QSA]
+RewriteRule ^planket/editera/(.+)$ board_edit.php?id=$1 [L,QSA]
+RewriteRule ^planket/tabort/(.+)$ /scripts/edit_board.php?do=delete&id=$1 [L,QSA]
+
+
+
+#Header unset Pragma
+#FileETag None
+#Header unset ETag
+
+# year
+#<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|swf|mp3|mp4)$">
+#Header set Cache-Control "public"
+#Header set Expires "Thu, 15 Apr 2030 20:00:00 GMT"
+#Header unset Last-Modified
+#</FilesMatch>
+
+#2 hours
+#<FilesMatch "\.(php|html|htm|xml|txt|xsl)$">
+#SetOutputFilter DEFLATE
+#Header set Cache-Control "max-age=7200, no-cache, must-revalidate"
+#Header set Expires "Thu, 15 Apr 1997 20:00:00 GMT"
+#</FilesMatch>
+
+#<FilesMatch "\.(js|css)$">
+#SetOutputFilter DEFLATE
+#Header set Expires "Thu, 15 Apr 2035 20:00:00 GMT"
+#</FilesMatch>

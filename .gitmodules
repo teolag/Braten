@@ -1,0 +1,6 @@
+[submodule "classes/DatabasePDO"]
+	path = classes/DatabasePDO
+	url = git@github.com:teolag/DatabasePDO.git
+[submodule "classes/PHPMailer"]
+	path = classes/PHPMailer
+	url = https://github.com/PHPMailer/PHPMailer.git
