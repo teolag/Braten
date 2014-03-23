@@ -7,7 +7,12 @@
 <br />
 
 
-<div id='wrapper-uWKY'><span id='h2-uWKY'><a id='url-uWKY' href="http://www.vackertvader.se/f%C3%B6lsvik"></a></span><div id='load-uWKY'></div><a id='url_detail-uWKY' href="http://www.vackertvader.se/f%C3%B6lsvik"></a></div><script type="text/javascript" src="http://www.vackertvader.se/weather/widget_request/2714125?bgcolor=ffffff&amp;border=none&amp;days=5&amp;key=-uWKY&amp;maxtemp=no&amp;size=x215&amp;textcolor=363636&amp;wind=yes" charset="utf-8"></script>
+<div id='wrapper-uWKY'>
+	<span id='h2-uWKY'><a id='url-uWKY' href="http://www.vackertvader.se/f%C3%B6lsvik"></a></span>
+	<div id='load-uWKY'></div>
+	<a id='url_detail-uWKY' href="http://www.vackertvader.se/f%C3%B6lsvik"></a>
+</div>
+<script type="text/javascript" src="http://www.vackertvader.se/weather/widget_request/2714125?bgcolor=ffffff&amp;border=none&amp;days=5&amp;key=-uWKY&amp;maxtemp=no&amp;size=x215&amp;textcolor=363636&amp;wind=yes" charset="utf-8"></script>
 
 
 
