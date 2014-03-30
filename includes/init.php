@@ -21,16 +21,17 @@ $db = new DatabasePDO($config["db"]["server"], $config["db"]["username"], $confi
 if(!empty($_SESSION['userID'])) $user = $db->getRow("SELECT * FROM users WHERE id=".intval($_SESSION['userID'])." LIMIT 1");
 elseif(!empty($_COOKIE['code'])) $user = $db->getRow("SELECT * FROM users WHERE MD5(CONCAT(username,password,'".SALT."'))='".$_COOKIE['code']."' LIMIT 1");
 
-/*
-if(isset($user['id'])) {
-	$db->execute("UPDATE users SET lastSeen=NOW() WHERE id=".$user['id']);
-	$_SESSION['userID'] = $user['id'];
+if(!$public) {
+	if(isset($user['id'])) {
+		$db->execute("UPDATE users SET lastSeen=NOW() WHERE id=".$user['id']);
+		$_SESSION['userID'] = $user['id'];
+	}
+	elseif(empty($user['id']) && $page!="login") {
+		header("location: login.php");
+		exit;
+	}
 }
-elseif(empty($user['id']) && $page!="login") {
-	header("location: login.php");
-	exit;
-}
-*/
+
 
 
 $owners = array("Mats", "Gunilla", "Eva");

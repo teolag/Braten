@@ -1,5 +1,6 @@
 <?php 
 if(!empty($_POST['userName']) && !empty($_POST['userPass'])) {
+	$public = true;
 	require "../../includes/init.php";
 	
 	$user = $db->getRow("SELECT * FROM users WHERE username='".$_POST['userName']."' AND password='".$_POST['userPass']."' AND level>0 LIMIT 1");

@@ -104,7 +104,7 @@ if(isset($user['id'])) {
 	<body>
 		
 		<div id="loginBox">
-			<a href="/"><h1>Bråtens vänner</h1></a> BETA
+			<a href="/"><h1>Bråtens vänner</h1></a>
 			<form  action="../scripts/login.php" method="post">
 				<label for="txt_username">Användare:</label>
 				<input type="text" name="userName" id="txt_username" />
