@@ -7,20 +7,18 @@ a { text-decoration: none; outline:none; }
 
 
 
-
-
 /***** ALL SIZES *****************************************/
 
 #nav_form {
 	display:none;
 }
 
-h1 {
+h1#logo {
 	text-indent: -3000px;
 	background-image: url(/img/logo.png);
 	display:block;
-	width:210px;
-	height:210px;
+	width:200px;
+	height:200px;
 }
 
 
@@ -30,17 +28,19 @@ html, body {
 }
 
 body {
-	background: #a1dbff;
-	background-image:url(/img/grass.png), -moz-linear-gradient(top,  #a1dbff 0%, #f0f9ff 100%);
-	background-image:url(/img/grass.png), -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a1dbff), color-stop(100%,#f0f9ff));
-	background-image:url(/img/grass.png), -webkit-linear-gradient(top,  #a1dbff 0%,#f0f9ff 100%);
-	background-image:url(/img/grass.png), -o-linear-gradient(top,  #a1dbff 0%,#f0f9ff 100%);
-	background-image:url(/img/grass.png), -ms-linear-gradient(top,  #a1dbff 0%,#f0f9ff 100%);
-	background-image:url(/img/grass.png), linear-gradient(top,  #a1dbff 0%,#f0f9ff 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a1dbff', endColorstr='#f0f9ff',GradientType=0 );
-	background-position:bottom;
-	background-repeat:repeat-x;
+	background: #cbe7f9 url(/img/grass_blur.jpg) repeat-x bottom center;
 	background-attachment:fixed;
+}
+
+
+
+.clearfix:before,
+.clearfix:after {
+  content:"";
+  display:table;
+}
+.clearfix:after {
+  clear:both;
 }
 
 
@@ -260,6 +260,10 @@ legend {
 li.post {
 	border-top:1px solid #DDD;
 	word-wrap: break-word;
+}
+
+li.post img {
+	max-width: 100%;
 }
 
 p.written {

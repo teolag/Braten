@@ -1,4 +1,5 @@
 .DS_Store
+files/
 includes/config.php
 xiocode.properties
 xiocode.todo

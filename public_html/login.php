@@ -21,18 +21,18 @@ if(isset($user['id'])) {
 			
 			
 			#loginBox {
-				width:450px;
+				width:470px;
 				height:280px;
 				top:47%;
 				left:50%;
-				margin-left:-225px;
+				margin-left:-235px;
 				margin-top:-140px;
 				background-color:rgba(255,255,255,0.8);
-				border-radius:6px;
+				border-radius:12px;
 				position:absolute;
-				-moz-box-shadow: 3px 3px 2px 2px rgba(0,0,0,0.2);
-				-webkit-box-shadow: 3px 3px 2px 2px rgba(0,0,0,0.2);
-				box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.3);
+				-moz-box-shadow: 0 2px 3px 0px rgba(0,0,0,0.3);
+				-webkit-box-shadow: 0 2px 3px 0px rgba(0,0,0,0.3);
+				box-shadow: 0 2px 3px 0px rgba(0,0,0,0.3);
 			}
 			
 			h1 {
@@ -49,17 +49,25 @@ if(isset($user['id'])) {
 				display:block;
 				float:left;
 				width:200px;
-				margin-top:80px;
+				margin-top:65px;
 				text-align:left;
 			}
 			
 			form button {
-				margin-top:10px;
-				float:right;
-				background:transparent url(/img/button.png) top left no-repeat;
-				border:0 none;
-				width:100px;
-				height:45px;
+				float: right;
+				border: 0 none;
+				padding: 7px 19px;
+				clear: both;
+				margin-top: 32px;
+				border-radius: 8px;
+				background-color: #DFDFDF;
+				border: 1px solid #A0A0A0;
+				color: rgb(66, 66, 66);
+			}
+			
+			form input {
+				padding: 6px;
+				border-radius: 8px;
 			}
 			
 					

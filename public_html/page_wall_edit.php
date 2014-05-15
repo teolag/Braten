@@ -28,7 +28,7 @@ else {
 	<input type="hidden" name="id" value="<?php echo $post['id']; ?>" />
 	<input type="hidden" name="post[writer]" value="<?php echo $post['writer']; ?>" />
 	<label for="txt_title">Rubrik</label><input type="text" name="post[title]" id="txt_title" value="<?php echo $post['title']; ?>" /><br />
-	<label for="txt_text">Text</label><textarea cols="60" rows="15" name="post[text]" id="txt_text"><?php echo $post['text']; ?></textarea><br />
+	<label for="txt_text">Text</label><textarea cols="60" rows="15" name="post[text]" id="txt_text" class="tinyMCE"><?php echo $post['text']; ?></textarea><br />
 	<button type="submit">Spara</button>
 </form>
 
