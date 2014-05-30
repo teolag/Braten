@@ -1,114 +1,101 @@
 <?php
-include "../includes/init.php";
 
+require "../includes/init.php";
+$user = Gatekeeper::getUser($db);
 
-
-$nav = array(
-	"start" => array(
-		"url"=>"",
-		"title"=>"Startsida"
-	),
-	"wall" => array(
-		"url"=>"planket",
-		"title"=>"Planket"
-	),
-	"profile" => array(
-		"url"=>"index.php?page=profile",
-		"title"=>"Min sida"
-	),
-	"planner" => array(
-		"url"=>"index.php?page=planner",
-		"title"=>"Årsplanering"
-	),
-	"manual" => array(
-		"url"=>"manual.pdf",
-		"title"=>"Manual PDF"
-	),
-	"logout" => array(
-		"url"=>"scripts/logout.php",
-		"title"=>"Logga ut"
-	)
-);
-
-
-
-$include_page = 'page_start.php';
-$page = "start";
-if(isset($_GET['page'])) {
-	$page = $_GET['page'];
-	if(file_exists("page_{$page}.php")) {
-		$include_page = "page_{$page}.php";
-	} elseif($page=="logout") {
-		header("Location: /scripts/logout.php");
-		break;
-	}
+$bodyClasses=array();
+if(isset($user)) {
+	$bodyClasses[] = "authorized";
 }
-
-
-
-
-
-
-
-
-$menuItems = array(
-	"Startsida"=>"",
-	//"Kalender"=>"calendar.php",
-	"Planket"=>"planket",
-	"Min sida"=>"mypage.php",
-	"Årsplanering"=>"plan.php"
-);
-
 ?>
-
 
 <!doctype html>
 <html lang="sv">
 	<head>
 		<title>Bråtens vänner</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="shortcut icon" href="/img/favicon.ico"/>
 		<link rel="stylesheet" type="text/css" href="/css/main.css" />
+		<script src="/js/svg4everybody.ie8.min.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
 	</head>
-	<body>
-		<div id="site">
-			<div id="sidebar" class='box'>
-				<a href="/"><h1 id="logo">Bråtens vänner</h1></a>
-				
-				<ul id="nav_list">
-					<?php
-					foreach($nav as $name => $n) {
-						$classes = array('menu'.$name);
-						if($name==$page) $classes[] = 'active';						
-						echo "<li><a href='/".$n['url']."' class='".implode(" ", $classes)."'>".$n['title']."</a></li>";
-					}
-					?>
-				</ul>				
-				
-				<form id="nav_form" action="index.php" method="get">
-					<select name="page">
-						<option value="">Gå till...</option>
-						<?php
-						foreach($nav as $name => $n) {
-							echo "<option value='{$name}'>{$n['title']}</option>";
-						}
-						?>
-					</select>
-					<button type="submit">Go!</button>
-				</form>
-				
-			</div>
-			<div id="page" class='box'>
-				<?php include $include_page; ?>
-
-			
-			</div>
-		</div>	
+	<body class="<?php echo implode(" ", $bodyClasses);?>">
 		
-		<script src="//code.jquery.com/jquery-latest.min.js"></script>
+		
+		
+		<header>
+			<svg id="btnMenu" viewBox="0 0 50 50" class="icon">
+			   <use xlink:href="/img/sprites.svg#icon-list"></use>
+			</svg>
+			
+			<h1>Bråtens vänner</h1>
+
+			<svg id="btnUser" viewBox="0 0 50 50" class="icon">
+				<use xlink:href="/img/sprites.svg#icon-user"></use>
+			</svg>
+		</header>
+
+		<nav class="main">
+			<a href="/"><img src="/img/logo3.png" alt="" class="logo" /></a>
+			
+			<ul>
+				<li data-action="news">Nyheter</li>
+				<li data-action="gallery">Galleriet</li>
+				<li data-action="documents">Dokument</li>
+			</ul>
+		</nav>
+
+		<nav class="user">
+			<div class="username"></div>
+			<ul>
+				<li data-action="settings">Inställningar</li>
+				<li data-action="logout">Logga ut</li>
+			</ul>
+		</nav>
+		
+		<main>
+			<article>
+				<h2>Hej</h2>
+				<br><br><br><br><br><br><br><br><br><br>
+				banan
+				<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+				kokosnöt
+			</article>
+			<article>
+				<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+				mango
+				<br><br><br><br><br><br>
+				Sluuuuuut!
+			</aritcle>
+		</main>
+		
+	
+	
+	
+		<form action="../scripts/login.php" method="post" id="formLogin">
+			<img src="/img/logo2.png" alt="" width="200" />
+			<div>
+				<input type="text" name="userName" id="txtUsername" placeholder="Användarnamn" autofocus/>
+				<input type="password" name="userPass" id="txtPassword" placeholder="Lösenord" /><br />
+				<label id="label_remember" for="remember">
+					<input type="checkbox" name="userRemember" id="remember" value="true" />
+					Kom ihåg mig
+				</label>
+				<br />
+				<button type="submit">Logga in</button>
+			</div>
+		</form>
+	
+		
 		<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
-		<script src="js/script.js"></script>
+		<script src="/AjaXIO/AjaXIO.js"></script>
+		<script src="/js/main.js"></script>
+		<?php
+		if(isset($user)) {
+			echo "<script>setUser(".json_encode($user).");</script>";
+		}
+		?>
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-15831022-1']);
