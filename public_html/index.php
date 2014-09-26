@@ -43,6 +43,7 @@ if(isset($user)) {
 				<li data-action="news">Nyheter</li>
 				<li data-action="gallery">Galleriet</li>
 				<li data-action="documents">Dokument</li>
+				<li data-action="planner">Planering</li>
 			</ul>
 		</nav>
 
@@ -55,19 +56,39 @@ if(isset($user)) {
 		</nav>
 		
 		<main>
-			<article>
-				<h2>Hej</h2>
-				<br><br><br><br><br><br><br><br><br><br>
-				banan
-				<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-				kokosnöt
-			</article>
-			<article>
-				<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-				mango
-				<br><br><br><br><br><br>
-				Sluuuuuut!
-			</aritcle>
+			<section data-id="start">
+				<?php include "pages/start.php";?>
+			</section>
+			
+			<section data-id="news">
+				<article>
+					<h2>Nyheter</h2>
+				</article>
+			</section>
+			
+			<section data-id="planner">
+				<article>
+					<?php include "pages/planner.php";?>
+				</article>
+			</section>
+			
+			<section data-id="gallery">
+				<article>
+					<h2>Galleriet</h2>
+				</article>
+			</section>
+			
+			<section data-id="documents">
+				<article>
+					<h2>Dokument</h2>
+				</article>
+			</section>
+			
+			<section data-id="settings">
+				<article>
+					<h2>Inställningar</h2>
+				</article>
+			</section>
 		</main>
 		
 	
@@ -90,12 +111,19 @@ if(isset($user)) {
 		
 		<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 		<script src="/AjaXIO/AjaXIO.js"></script>
+		<script src="/js/page.js"></script>
+		<script src="/js/braten.js"></script>
+		<script src="/pages/start.js"></script>
+		<script src="/pages/planner.js"></script>
 		<script src="/js/main.js"></script>
+		<script>
 		<?php
 		if(isset($user)) {
-			echo "<script>setUser(".json_encode($user).");</script>";
+			echo "setUser(".json_encode($user).");";
 		}
+		echo "var easterWeeks = " . json_encode($easterWeeks) . ";";
 		?>
+		</script>
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-15831022-1']);

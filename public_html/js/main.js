@@ -1,6 +1,22 @@
 document.addEventListener("DOMContentLoaded", function(){
-
+	console.log(location.href);
+	
+	var parts = location.pathname.slice(1).split("/");
+	var page = parts[0];
+	
+	
+	var state = {page:page};
+	switch(page) {
+		case "planner":
+		state.item = parts[1];
+		break;
+	}
+	
+	console.log(state, parts);
+	braten.loadState(state);
 });
+
+
 
 
 var btnMenu = document.getElementById("btnMenu");
@@ -13,6 +29,13 @@ var userName = userMenu.querySelector(".username");
 mainMenu.addEventListener("click", menuHandler, false);
 userMenu.addEventListener("click", menuHandler, false);
 
+
+document.querySelector("nav.main img.logo").addEventListener("click", function(e){
+	e.preventDefault();
+	mainMenu.classList.remove("open");
+	header.classList.remove("main-open");
+	braten.goto();
+});
 
 btnMenu.addEventListener("click", function(e) {
 	if(mainMenu.classList.contains("open")) {
@@ -42,6 +65,26 @@ function menuHandler(e) {
 		switch(action) {
 			case "logout":
 				logout();
+			break;
+			
+			case "news":
+				braten.goto("news");
+			break;
+			
+			case "gallery":
+				braten.goto("gallery");
+			break;
+			
+			case "documents":
+				braten.goto("documents");
+			break;
+			
+			case "planner":
+				braten.goto("planner");
+			break;
+			
+			case "settings":
+				braten.goto("settings");
 			break;
 		}
 		
@@ -106,6 +149,15 @@ function logout() {
 function logoutCallback() {
 	document.body.classList.remove("authorized");
 }
+
+
+window.addEventListener('popstate', function(event) {
+	var state = event.state;
+	console.log("popstate", event);
+	braten.loadState(state);
+});
+
+
 
 
 

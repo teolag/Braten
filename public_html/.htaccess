@@ -6,13 +6,14 @@ php_flag html_errors on
 
 RewriteEngine on
 RewriteBase /
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^page/(.+)$ $1.php [L,QSA]
-RewriteRule ^planket/*$ index.php?page=wall [L,QSA]
-RewriteRule ^planket/skriv*$ board_edit.php [L,QSA]
-RewriteRule ^planket/editera/(.+)$ board_edit.php?id=$1 [L,QSA]
-RewriteRule ^planket/tabort/(.+)$ /scripts/edit_board.php?do=delete&id=$1 [L,QSA]
+
+# If requested resource exists as a file or directory go to it
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule (.*) - [L]
+
+# Else rewrite requests for non-existent resources to /index.php
+RewriteRule (.*) /index.php?q=$1 [L]
 
 
 
