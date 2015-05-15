@@ -21,6 +21,8 @@ if(isset($_GET['do']) && $_GET['do']=="delete" && isset($_GET['id'])) {
 
 	$response['message'] = "new post saved";
 
+	$response['post'] = $_POST;
+
 	$notifyUsers = $db->getArray("SELECT id, email, firstName, lastName FROM users WHERE notifyBoard=1 AND email!='' && id!=".$user['id']);
 	//$notifyUsers = $db->getArray("SELECT id, email, firstName, lastName FROM users WHERE notifyBoard=1 AND email!='' && id=1");
 
