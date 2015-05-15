@@ -11,7 +11,7 @@ $posts = $db->getArray("SELECT posts.id, title, text, date, writer, firstName, l
 <?php
 echo "<ul id='posts'>";
 foreach($posts as $post) {
-	echo "<li class='post clearfix'>";
+	echo "<li class='post'>";
 	echo "<h3>" . $post['title'] . "</h3>";
 	echo "<p class='written'>";
 		echo $post['firstName'] . " " . $post['lastName'] . " | ";
@@ -22,7 +22,7 @@ foreach($posts as $post) {
 		}
 		echo "</p>";
 	
-	echo "<p>" . $post['text'] . "</p>";
+	echo "<p>" . fixText($post['text']) . "</p>";
 	
 	echo "</li>";
 }

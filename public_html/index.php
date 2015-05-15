@@ -21,14 +21,14 @@ if(isset($user)) {
 		<link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
 	</head>
 	<body class="<?php echo implode(" ", $bodyClasses);?>">
-		
-		
-		
+
+
+
 		<header>
 			<svg id="btnMenu" viewBox="0 0 50 50" class="icon">
 			   <use xlink:href="/img/sprites.svg#icon-list"></use>
 			</svg>
-			
+
 			<h1>Bråtens vänner</h1>
 
 			<svg id="btnUser" viewBox="0 0 50 50" class="icon">
@@ -38,7 +38,7 @@ if(isset($user)) {
 
 		<nav class="main">
 			<a href="/"><img src="/img/logo3.png" alt="" class="logo" /></a>
-			
+
 			<ul>
 				<li data-action="news">Nyheter</li>
 				<li data-action="gallery">Galleriet</li>
@@ -54,46 +54,46 @@ if(isset($user)) {
 				<li data-action="logout">Logga ut</li>
 			</ul>
 		</nav>
-		
+
 		<main>
 			<section data-id="start">
 				<?php include "pages/start.php";?>
 			</section>
-			
+
 			<section data-id="news">
 				<article>
 					<h2>Nyheter</h2>
 				</article>
 			</section>
-			
+
 			<section data-id="planner">
 				<article>
 					<?php include "pages/planner.php";?>
 				</article>
 			</section>
-			
+
 			<section data-id="gallery">
 				<article>
 					<h2>Galleriet</h2>
 				</article>
 			</section>
-			
+
 			<section data-id="documents">
 				<article>
 					<h2>Dokument</h2>
 				</article>
 			</section>
-			
+
 			<section data-id="settings">
 				<article>
 					<h2>Inställningar</h2>
 				</article>
 			</section>
 		</main>
-		
-	
-	
-	
+
+
+
+
 		<form action="../scripts/login.php" method="post" id="formLogin">
 			<img src="/img/logo2.png" alt="" width="200" />
 			<div>
@@ -107,8 +107,7 @@ if(isset($user)) {
 				<button type="submit">Logga in</button>
 			</div>
 		</form>
-	
-		
+
 		<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 		<script src="/AjaXIO/AjaXIO.js"></script>
 		<script src="/js/page.js"></script>
@@ -134,6 +133,6 @@ if(isset($user)) {
 				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
-		</script>		
+		</script>
 	</body>
 </html>
