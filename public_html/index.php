@@ -38,7 +38,8 @@ if(isset($user)) {
 			<a href="/"><img src="/img/logo3.png" alt="" class="logo" /></a>
 
 			<ul>
-				<li data-action="news">Nyheter</li>
+				<li data-action="posts">Inlägg</li>
+				<li data-action="about">Om Bråten</li>
 				<li data-action="gallery">Galleriet</li>
 				<li data-action="documents">Dokument</li>
 				<li data-action="planner">Planering</li>
@@ -58,16 +59,20 @@ if(isset($user)) {
 				<?php include "pages/start.php";?>
 			</section>
 
-			<section data-id="news">
-				<article>
-					<h2>Nyheter</h2>
-				</article>
+			<section data-id="about">
+				<?php include "pages/about.php";?>
+			</section>
+
+			<section data-id="posts">
+				<?php include "pages/posts.php";?>
+			</section>
+
+			<section data-id="postEdit">
+				<?php include "pages/post_edit.php";?>
 			</section>
 
 			<section data-id="planner">
-				<article>
-					<?php include "pages/planner.php";?>
-				</article>
+				<?php include "pages/planner.php";?>
 			</section>
 
 			<section data-id="gallery">
@@ -75,14 +80,12 @@ if(isset($user)) {
 			</section>
 
 			<section data-id="documents">
-				<article>
-					<h2>Dokument</h2>
-				</article>
+				<?php include "pages/documents.php";?>
 			</section>
 
 			<section data-id="settings">
-				<article>
-					<h2>Inställningar</h2>
+				<h2>Inställningar</h2>
+				<article>xdf
 				</article>
 			</section>
 		</main>
@@ -111,6 +114,8 @@ if(isset($user)) {
 		<script src="/pages/start.js"></script>
 		<script src="/pages/planner.js"></script>
 		<script src="/pages/gallery.js"></script>
+		<script src="/pages/posts.js"></script>
+		<script src="/pages/post_edit.js"></script>
 		<script src="/js/main.js"></script>
 		<script>
 		<?php

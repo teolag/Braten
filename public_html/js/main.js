@@ -1,17 +1,17 @@
 document.addEventListener("DOMContentLoaded", function(){
 	console.log(location.href);
-	
+
 	var parts = location.pathname.slice(1).split("/");
 	var page = parts[0];
-	
-	
+
+
 	var state = {page:page};
 	switch(page) {
 		case "planner":
 		state.item = parts[1];
 		break;
 	}
-	
+
 	console.log(state, parts);
 	braten.loadState(state);
 });
@@ -59,35 +59,42 @@ btnUser.addEventListener("click", function(e) {
 
 function menuHandler(e) {
 	console.log("menu click", e);
-	
+
 	if(e.target.nodeName==="LI") {
 		var action = e.target.dataset.action;
 		switch(action) {
 			case "logout":
 				logout();
 			break;
-			
-			case "news":
-				braten.goto("news");
+
+			case "posts":
+				braten.goto("posts");
 			break;
-			
+
+			case "about":
+				braten.goto("about");
+			break;
+
 			case "gallery":
 				braten.goto("gallery");
 			break;
-			
+
 			case "documents":
 				braten.goto("documents");
 			break;
-			
+
 			case "planner":
 				braten.goto("planner");
 			break;
-			
+
 			case "settings":
 				braten.goto("settings");
 			break;
+
+			default:
+				console.warn("page not implemented")
 		}
-		
+
 		mainMenu.classList.remove("open");
 		userMenu.classList.remove("open");
 		header.classList.remove("user-open");
@@ -107,7 +114,7 @@ formLogin.addEventListener("submit", submitLogin, false);
 function authCallback(json) {
 	txtUsername.value="";
 	txtPassword.value="";
-	
+
 	if(json.status===1000) {
 		console.log("authCallback", json);
 		document.body.classList.add("authorized");
@@ -131,12 +138,12 @@ function submitLogin(e) {
 		txtUsername.focus();
 		return;
 	}
-	
+
 	if(!txtPassword.value) {
 		txtPassword.focus();
 		return;
 	}
-	
+
 	Ajax.post2JSON("/actions/auth_login.php", e.target, authCallback);
 }
 

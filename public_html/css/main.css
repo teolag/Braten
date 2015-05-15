@@ -17,8 +17,7 @@ body {
 }
 
 body.authorized {
-	align-items: stretch;
-	padding-top: 3em;
+	align-items: flex-start;
 }
 body.authorized main,
 body.authorized nav.main,
@@ -51,24 +50,24 @@ header {
 	background-color: #333;
 	color: #999;
 	position: fixed;
-	top: 0;
+	top: -50px;
 	left: 0;
 	width: 100%;
-	display: none;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
 	-webkit-transition: -webkit-transform 0.3s ease-out;
     transition: transform 0.3s ease-out;
+	transform: translate(0, 50px);
 }
 
 header.main-open {
 	-webkit-transform: translate(250px,0);
-	transform: translate(250px,0);
+	transform: translate(250px,50px);
 }
 header.user-open {
 	-webkit-transform: translate(-250px,0);
-	transform: translate(-250px,0);
+	transform: translate(-250px,50px);
 }
 
 header .icon {
@@ -162,10 +161,17 @@ nav.main .logo {
 main {
 	display: none;
 	max-width: 800px;
-	margin: 2em 0;
+	margin: 4em 0 1em 0;
+	-webkit-transition: margin 0.3s ease-out;
+    transition: margin 0.3s ease-out;
 	flex: 1;
 }
 
+h2 {
+	color: rgb(57, 69, 7);
+	text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.6);
+	text-align: center;
+}
 
 section {
 	display: none;
@@ -222,9 +228,9 @@ ul#plannerPeriods {
 }
 
 .noowner { background-color: #ddd; }
-.ownercolor0 { background-color: #a2ceda; }
-.ownercolor1 { background-color: #d2978d; }
-.ownercolor2 { background-color: #a8b274; }
+.ownercolor0 { color: #fff; background-color: hsl(199, 50%, 57%); }
+.ownercolor1 { color: #fff; background-color: hsl(9, 50%, 57%); }
+.ownercolor2 { color: #fff; background-color: hsl(99, 50%, 57%); }
 
 
 
@@ -271,13 +277,12 @@ ul#plannerPeriods {
 	}
 
 	body.authorized header {
-		display: none;
+		transform: translate(0,0);
 	}
 
 	nav.main {
 		-webkit-transform: translate(0,0);
 		transform: translate(0,0);
-
 	}
 
 	nav.main li {
@@ -291,6 +296,8 @@ ul#plannerPeriods {
 
 	main {
 		margin-left: 250px;
+		margin-top: 0;
+
 	}
 
 

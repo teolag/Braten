@@ -15,7 +15,7 @@ var braten = (function() {
 		}
 
 		var menuItems = document.querySelectorAll("nav li");
-		for(var i = 0; i < sections.length; i++) {
+		for(var i = 0; i < menuItems.length; i++) {
 			if(menuItems[i].dataset.action === page) {
 				menuItems[i].classList.add("active");
 			} else {

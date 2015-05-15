@@ -1,5 +1,5 @@
 <?php
-$posts = $db->getArray("SELECT posts.id, title, text, date, writer, firstName, lastName FROM posts JOIN users ON posts.writer=users.id ORDER BY date DESC LIMIT 50");
+$posts = $db->getArray("SELECT posts.id, title, text, date, writer, firstName, lastName FROM posts JOIN users ON posts.writer=users.id ORDER BY date DESC");
 
 
 ?>
@@ -21,9 +21,9 @@ foreach($posts as $post) {
 			echo " | <a href='planket/tabort/".$post['id']."'>Ta bort</a>";
 		}
 		echo "</p>";
-	
+
 	echo "<p>" . fixText($post['text']) . "</p>";
-	
+
 	echo "</li>";
 }
 echo "</ul>";
