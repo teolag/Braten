@@ -109,7 +109,7 @@ if(isset($user)) {
 		</form>
 
 		<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
-		<script src="/AjaXIO/AjaXIO.js"></script>
+		<script src="//cdn.xio.se/AjaXIO/dev/AjaXIO.js"></script>
 		<script src="/js/page.js"></script>
 		<script src="/js/braten.js"></script>
 		<script src="/pages/start.js"></script>

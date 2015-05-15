@@ -12,7 +12,7 @@ header('Pragma: no-cache');
 
 setlocale(LC_TIME, 'sv_SV', 'swedish');
 require ROOT."includes/config.php";
-require ROOT."classes/DatabasePDO/DatabasePDO.php";
+require "/git/DatabasePDO/DatabasePDO.php";
 require ROOT."classes/Gatekeeper.php";
 
 define("SALT", $config['salt']);
@@ -43,25 +43,25 @@ function getMidsummerWeek($year) {
 
 function getPrioritizedFamily($week, $year) {
 	if($week>32 || $week<12) return 3;
-	
+
 	$easterWeek = getEasterWeek($year);
 	switch($week) {
 		case 25: case 26: case 27:
 		$period = 0;
 		break;
-		
+
 		case 28: case 29: case $easterWeek:
 		$period = 1;
 		break;
-		
+
 		case 30: case 31: case 32: case $easterWeek+6:
 		$period = 2;
 		break;
-		
+
 		default:
 		return 3;
 		break;
-	}	
+	}
 	return getOwner($period, $year);
 }
 
