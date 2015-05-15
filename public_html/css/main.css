@@ -47,6 +47,7 @@ body.authorized #formLogin {
 
 
 header {
+	display: none;
 	background-color: #333;
 	color: #999;
 	position: fixed;

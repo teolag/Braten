@@ -13,6 +13,11 @@ PostEdit.prototype.init = function() {
 	this.form = this.section.querySelector("form");
 	this.form.addEventListener("submit", this.submitForm.bind(this), false);
 
+	this.txtId = this.form.elements['id'];
+	this.txtTitle = this.form.elements['title'];
+	this.txtText = this.form.elements['text'];
+
+
 
 	tinymce.init({
 		selector: "textarea.tinyMCE",
@@ -58,6 +63,26 @@ PostEdit.prototype.init = function() {
 
 PostEdit.prototype.show = function(state) {
 	this.superShow(state);
+
+	console.log("post show", state);
+
+	if(state.item) {
+		var id = parseInt(state.item);
+
+		console.log("edit post id:", id);
+		this.txtId.value = id;
+
+		var post = Posts.get(id);
+		this.txtTitle.value = post.title;
+		tinyMCE.activeEditor.setContent(post.text);
+
+
+	} else {
+		console.log("create new post");
+		this.txtId.value = "";
+		this.txtTitle.value = "";
+		tinyMCE.activeEditor.setContent("");
+	}
 
 };
 

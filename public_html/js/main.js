@@ -5,12 +5,11 @@ document.addEventListener("DOMContentLoaded", function(){
 	var page = parts[0];
 
 
-	var state = {page:page};
-	switch(page) {
-		case "planner":
-		state.item = parts[1];
-		break;
-	}
+	var state = {
+		page: parts[0] || null,
+		item: parts[1] || null,
+		action: parts[2] || null,
+	};
 
 	console.log(state, parts);
 	braten.loadState(state);

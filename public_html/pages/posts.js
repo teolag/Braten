@@ -1,62 +1,99 @@
-Posts.prototype = new Page();
-Posts.prototype.constructor=Posts;
-
-function Posts(name){
-	this.name=name;
-	this.posts = [];
-};
-
-Posts.prototype.init = function() {
-	var my = this;
-	console.log("init", my.name);
-
-	this.section = document.querySelector("section[data-id='"+my.name+"']");
-
-	this.btnNewPost = this.section.querySelector("#btnNewPost");
-	this.btnNewPost.addEventListener("click", function(e) {
-		braten.goto("postEdit");
-	}, false);
+(function() {
 
 
-	Ajax.getJSON("/actions/posts_get.php", {}, this.postsCallback.bind(this));
+	var posts = [];
 
 
-	this.superInit();
-};
+	var _ = self.Posts = function(name){
+		this.name=name;
+	};
 
-Posts.prototype.show = function(state) {
-	this.superShow(state);
+	_.prototype = new Page();
+	_.prototype.constructor = _;
 
-};
+	_.prototype.init = function() {
+		var my = this;
+		console.log("init", my.name);
 
-Posts.prototype.postsCallback = function(data) {
-	console.log("postsCallback", data);
-	this.posts = data.posts;
-	this.renderPosts();
-}
+		this.section = document.querySelector("section[data-id='"+my.name+"']");
 
-Posts.prototype.renderPosts = function() {
-	for(var i=0, l=this.posts.length; i<l; i++) {
-		var post = this.posts[i];
-		var article = document.createElement("article");
-		var title = document.createElement("h3");
-		title.textContent = post.title;
+		this.btnNewPost = this.section.querySelector("#btnNewPost");
+		this.btnNewPost.addEventListener("click", function(e) {
+			braten.goto("postEdit");
+		}, false);
 
-		var date = document.createElement("div");
-		date.textContent = post.date;
 
-		var writer = document.createElement("div");
-		writer.textContent = post.writer;
+		Ajax.getJSON("/actions/posts_get.php", {}, this.postsCallback.bind(this));
 
-		var text = document.createElement("text");
-		text.innerHTML = post.text;
 
-		article.appendChild(title);
-		article.appendChild(date);
-		article.appendChild(writer);
-		article.appendChild(text);
-		this.section.appendChild(article);
+		this.superInit();
+	};
+
+	_.prototype.show = function(state) {
+		this.superShow(state);
+	};
+
+	_.prototype.postsCallback = function(data) {
+		console.log("postsCallback", data);
+		posts = data.posts;
+		this.renderPosts();
 	}
-}
 
-braten.pages.posts = new Posts("posts");
+	Posts.prototype.renderPosts = function() {
+		for(var i=0, l=posts.length; i<l; i++) {
+			var post = posts[i];
+			var article = document.createElement("article");
+			var title = document.createElement("h3");
+			title.textContent = post.title;
+
+			var btnEdit = document.createElement("button");
+			btnEdit.textContent = "Redigera";
+			btnEdit.dataset.id = post.id;
+			btnEdit.addEventListener("click", this.doEditPost.bind(this), false);
+
+			var date = document.createElement("div");
+			date.textContent = post.date;
+
+			var writer = document.createElement("div");
+			writer.textContent = post.writer;
+
+			var text = document.createElement("text");
+			text.innerHTML = post.text;
+
+			article.appendChild(btnEdit);
+			article.appendChild(title);
+			article.appendChild(date);
+			article.appendChild(writer);
+			article.appendChild(text);
+			this.section.appendChild(article);
+		}
+	};
+
+	_.prototype.doEditPost = function(e) {
+		braten.goto("postEdit", e.target.dataset.id, "edit");
+	};
+
+
+
+
+
+
+
+
+
+
+
+	_.get = function(id) {
+		for(var i=0, l=posts.length; i<l; i++) {
+			if(posts[i].id === id) {
+				return posts[i];
+			}
+		}
+	};
+
+
+
+
+
+	braten.pages.posts = new _("posts");
+}());
