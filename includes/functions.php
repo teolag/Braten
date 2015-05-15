@@ -4,13 +4,13 @@
 function __autoload($className) {
 	switch($className) {
 		case "DatabasePDO":
-		$file = ROOT."classes/DatabasePDO/" . $className.".php";
+		$file = "/git/DatabasePDO/DatabasePDO.php";
 		break;
-		
+
 		case "PHPMailer":
-		$file = ROOT."classes/PHPMailer/class.phpmailer.php";
+		$file = "/git/PHPMailer/class.phpmailer.php";
 		break;
-		
+
 		default:
 		$file = ROOT."classes/" . $className.".php";
 	}
@@ -18,7 +18,6 @@ function __autoload($className) {
 	if(is_file($file)) require($file);
 	else die("Class not found: " . $file);
 }
-
 
 
 function getEasterWeek($year) {
