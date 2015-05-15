@@ -1,8 +1,8 @@
 var braten = (function() {
 	var
 	pages = {},
-	
-	loadState = function(state) {	
+
+	loadState = function(state) {
 		var page = state && state.page? state.page : "start";
 
 		var sections = document.getElementsByTagName("section");
@@ -22,11 +22,11 @@ var braten = (function() {
 				menuItems[i].classList.remove("active");
 			}
 		}
-		
+
 		console.log("try to show state", state, page);
 		pages[page].show(state);
 	},
-	
+
 	goto = function(page, item, action) {
 		var state = {page:page, item:item, action:action};
 		var url="";
@@ -36,7 +36,7 @@ var braten = (function() {
 		history.pushState(state, null, page? url:"/");
 		loadState(state);
 	},
-	
+
 	addPage = function(name, page) {
 		pages[name] = page;
 	};

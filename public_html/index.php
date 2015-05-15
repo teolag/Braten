@@ -17,8 +17,6 @@ if(isset($user)) {
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="shortcut icon" href="/img/favicon.ico"/>
 		<link rel="stylesheet" type="text/css" href="/css/main.css" />
-		<script src="/js/svg4everybody.ie8.min.js"></script>
-		<link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
 	</head>
 	<body class="<?php echo implode(" ", $bodyClasses);?>">
 
@@ -73,9 +71,7 @@ if(isset($user)) {
 			</section>
 
 			<section data-id="gallery">
-				<article>
-					<h2>Galleriet</h2>
-				</article>
+				<?php include "pages/gallery.php";?>
 			</section>
 
 			<section data-id="documents">
@@ -114,6 +110,7 @@ if(isset($user)) {
 		<script src="/js/braten.js"></script>
 		<script src="/pages/start.js"></script>
 		<script src="/pages/planner.js"></script>
+		<script src="/pages/gallery.js"></script>
 		<script src="/js/main.js"></script>
 		<script>
 		<?php
