@@ -16,8 +16,6 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 
-
-
 var btnMenu = document.getElementById("btnMenu");
 var btnUser = document.getElementById("btnUser");
 var mainMenu = document.querySelector("nav.main");

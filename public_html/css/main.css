@@ -199,6 +199,18 @@ article.post img {
 }
 
 
+/***** POST EDIT *********************/
+
+#txt_title {
+	display: block;
+	width: 100%;
+	font-size: 1.3em;
+	padding: 0.5em;
+	box-sizing: border-box;
+	margin-bottom: 0.5em;
+}
+
+
 
 /*****  PLAN  ************************/
 
@@ -277,17 +289,25 @@ ul#plannerPeriods {
 
 
 
+@media screen and (min-width: 600px) {
+
+	body.authorized {
+		padding: 1em;
+	}
 
 
+	article {
+		padding: 2em;
+	}
+
+}
 
 
 @media screen and (min-width: 800px) {
 
 
 
-	body.authorized {
-		padding: 1em;
-	}
+
 
 	body.authorized header {
 		transform: translate(0,0);
@@ -310,13 +330,8 @@ ul#plannerPeriods {
 	main {
 		margin-left: 250px;
 		margin-top: 0;
-
 	}
 
-	article {
-		padding: 2em;
-		margin-bottom: 1em;
-	}
 
 
 	#formLogin {
