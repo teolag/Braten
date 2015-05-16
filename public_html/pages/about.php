@@ -5,6 +5,6 @@
 		Historia
 	</h3>
 	<p>
-		Bråten byggdes 1895...
+		Bråten byggdes 1897...
 	</p>
 </article>

@@ -1,7 +1,9 @@
+<h2>Galleriet</h2>
+
 <article>
-	<h2>2015</h2>
+	<h3>2015</h3>
 </article>
 
 <article>
-	<h2>2014</h2>
+	<h3>2014</h3>
 </aritcle>

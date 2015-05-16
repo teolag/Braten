@@ -48,8 +48,8 @@ if(isset($_GET['do']) && $_GET['do']=="delete" && isset($_GET['id'])) {
 	*/
 }
 else {
-
-
+	$db->update("UPDATE posts SET title=?, text=? WHERE id=? AND writer_id=?", array($_POST['title'], $_POST['text'], $_POST['id'], $user['id']));
+	$response['message'] = "post saved";
 }
 
 

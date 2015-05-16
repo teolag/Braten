@@ -94,10 +94,10 @@ if(isset($user)) {
 
 
 		<form action="../scripts/login.php" method="post" id="formLogin">
-			<img src="/img/logo2.png" alt="" width="200" />
+			<img src="/img/logo3.png" alt="" width="200" />
 			<div>
-				<input type="text" name="userName" id="txtUsername" placeholder="Användarnamn" autofocus/>
-				<input type="password" name="userPass" id="txtPassword" placeholder="Lösenord" /><br />
+				<input type="text" name="userName" id="txtUsername" placeholder="Användarnamn" autofocus />
+				<input type="password" name="userPass" id="txtPassword" placeholder="Lösenord" />
 				<label id="label_remember" for="remember">
 					<input type="checkbox" name="userRemember" id="remember" value="true" />
 					Kom ihåg mig
@@ -111,18 +111,21 @@ if(isset($user)) {
 		<script src="//cdn.xio.se/AjaXIO/dev/AjaXIO.js"></script>
 		<script src="/js/page.js"></script>
 		<script src="/js/braten.js"></script>
-		<script src="/pages/start.js"></script>
-		<script src="/pages/planner.js"></script>
+		<script src="/pages/about.js"></script>
+		<script src="/pages/documents.js"></script>
 		<script src="/pages/gallery.js"></script>
+		<script src="/pages/planner.js"></script>
 		<script src="/pages/posts.js"></script>
 		<script src="/pages/post_edit.js"></script>
+		<script src="/pages/start.js"></script>
+		<script src="/pages/user_settings.js"></script>
 		<script src="/js/main.js"></script>
 		<script>
 		<?php
 		if(isset($user)) {
-			echo "setUser(".json_encode($user).");";
+			echo "setUser(".json_encode($user, JSON_NUMERIC_CHECK).");";
 		}
-		echo "var easterWeeks = " . json_encode($easterWeeks) . ";";
+		echo "var easterWeeks = " . json_encode($easterWeeks, JSON_NUMERIC_CHECK) . ";";
 		?>
 		</script>
 		<script type="text/javascript">
