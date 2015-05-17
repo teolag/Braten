@@ -195,7 +195,42 @@ article {
 article.post img {
 	max-width: 100%;
 	height: auto;
+}
+article.post button {
+	float: right;
+}
+article.post h3 {
+	margin: 0;
+}
 
+
+.tinyGallery {
+	display: flex;
+	flex-flow: row wrap;
+	/*align-items: flex-start;*/
+	padding: 0;
+}
+
+.tinyGallery>li {
+	/*flex: auto;*/
+	width: 150px;
+	display: block;
+	list-style-type: none;
+	margin: 6px;
+	border: 7px solid white;
+	box-shadow: 0 2px 15px rgba(0,0,0,.3);
+	font-size: 0;
+	cursor: pointer;
+}
+.tinyGallery>li:hover {
+  box-shadow: 0 2px 3px rgba(0,0,0,.3);
+  border-color: rgb(241,247,234);
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+.tinyGallery img {
+	width: 100%;
+	height: auto;
 }
 
 
@@ -210,6 +245,11 @@ article.post img {
 	margin-bottom: 0.5em;
 }
 
+body.mce-content-body {
+	background: transparent;
+	display: block;
+	padding:0;
+}
 
 
 /*****  PLAN  ************************/

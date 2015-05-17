@@ -33,7 +33,7 @@ PostEdit.prototype.init = function() {
 		image_advtab: true,
 		menubar: false,
 		//file_picker_callback: myImagePicker,
-		//content_css: "css/content.css",
+		content_css: "/css/main.css",
 		toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link tinyGallery | code",
 		style_formats_merge: true,
 		style_formats: [

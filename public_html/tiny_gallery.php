@@ -31,6 +31,10 @@ thumb och begränsa max på originalet
 
 		</ul>
 
+		<button type="button" id="btnOk">
+			Ok
+		</button>
+
 
 		<script src="/js/tiny_gallery.js"></script>
 

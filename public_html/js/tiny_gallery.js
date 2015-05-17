@@ -1,4 +1,12 @@
+var files = [];
+
+
 var fileList = document.getElementById("fileList");
+
+
+
+var btnOk = document.getElementById("btnOk");
+btnOk.addEventListener("click", processImages, false);
 
 
 var fileBrowser = document.getElementById("fileBrowser");
@@ -15,7 +23,9 @@ function filesAdded(e) {
 }
 
 function addFile(file) {
+	files.push(file);
 	var li = document.createElement("li");
+	file.li = li;
 
 	var spanName = document.createElement("span");
 	spanName.textContent = file.name;
@@ -23,7 +33,7 @@ function addFile(file) {
 
 	var spanStatus = document.createElement("span");
 	li.appendChild(spanStatus);
-
+	file.spanStatus = spanStatus;
 
 	fileList.appendChild(li);
 
@@ -47,18 +57,15 @@ function addFile(file) {
 
 
 
-function uploadFiles(e) {
-	for(var i=0, l=e.target.files.length; i<l; i++) {
-		var file = e.target.files[i];
-		uploadFile(file);
+function processImages(e) {
+	for(var i=0, l=files.length; i<l; i++) {
+		var file = files[i];
+		processImage(file);
 	}
 }
 
-function uploadFile(file) {
+function processImage(file) {
 	console.log("upload file", file);
-
-	var li = document.createElement("li");
-
 
 	var formData = new FormData();
 	formData.append("file", file);
@@ -75,23 +82,17 @@ function uploadFile(file) {
 		console.log("progress", e);
 		console.log("Uploaded "+e.loaded+" bytes of "+e.total + "(" + percent + ")");
 
-		spanStatus.textContent = percent + "%";
+		file.spanStatus.textContent = percent + "%";
 
 	}
 	function completeHandler(e){
 		console.log("complete", e);
 		var json = JSON.parse(e.target.responseText);
-		spanStatus.textContent = "Done!";
+		file.spanStatus.textContent = "Done!";
+		file.done = true;
+		file.id = json.uploaded[0].file_id;
 
-		/*
-		if(json.uploaded[0]) {
-			var fileId = json.uploaded[0].file_id;
-			top.tinymce.activeEditor.windowManager.getParams().oninsert(fileId, "koko", "orvar", 44);
-			top.tinymce.activeEditor.windowManager.close();
-		} else {
-			console.log("error uploading", e);
-		}
-		*/
+		checkAllFiles();
 	}
 
 
@@ -102,4 +103,17 @@ function uploadFile(file) {
 	function abortHandler(e){
 		console.log("Upload Aborted", e);
 	}
+}
+
+
+function checkAllFiles() {
+	for(var i=0, l=files.length; i<l; i++) {
+		var file = files[i];
+		if(!file.done) return false;
+	}
+
+	console.log("All files ready");
+	top.tinymce.activeEditor.windowManager.getParams().oninsert(files);
+	top.tinymce.activeEditor.windowManager.close();
+
 }
