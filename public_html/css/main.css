@@ -44,114 +44,148 @@ body {
 }
 
 
-	
-	
-	
-@media screen and (max-width: 480px) {
+
+
+
+
+
+#site {
+	margin:0px auto;
+	max-width:1200px;
+	padding:20px;
+}
+
+h1 {
+	margin:auto;
+}
+
+body {
+	overflow-y: scroll;
+	text-align:center;
+}
+
+.box {
+	background-color:white;
+	border:3px solid #FFF;
+	/*border-radius:30px;*/
+	box-shadow: 1px 3px 10px rgba(0,0,0,0.2);
+}
+
+#sidebar {
+	width:320px;
+	float:left;
+	padding:40px 0;
+	text-align:center;
+}
+
+	#nav_list {
+		width:200px;
+		margin:20px auto 0 auto;
+	}
+
+	#nav_list a {
+		display:block;
+		font-size:18px;
+		color:black;
+		text-decoration:none;
+		width:190px;
+		padding:5px;
+	}
+
+	#nav_list a:hover {
+		background-color: #E3E9FF;
+	}
+
+	#nav_list a.active{
+		color:#777;
+	}
+
+#page {
+	margin-left:350px;
+	padding:30px;
+	text-align:left;
+}
+
+
+
+@media screen and (max-width: 800px) {
+	#sidebar {
+		float: none;
+		background: transparent;
+		border: 0;
+		box-shadow: none;
+		width: 100%;
+		padding: 0;
+	}
+
+	#sidebar li {
+		display: inline-block;
+	}
+	#sidebar li a {
+		display: inline-block;
+		width: auto;
+		padding: 0.5em;
+	}
+
+	#page {
+		margin:0px;
+	}
+
+	#nav_list {
+		width: 100%;
+		background-color: white;
+		box-shadow: 1px 3px 10px rgba(0,0,0,0.2);
+		margin: 1em 0;
+	}
+}
+
+
+
+
+@media screen and (max-width: 500px) {
 
 	h1 {
-		width:105px;		
+		width:105px;
 		height:105px;
 		background-image: url(/img/logo_half.png);
 	}
-	
+
 	h1 {
-		float:left;		
+		float:left;
 	}
-	
-	
+
+
 	#site {
 		margin:0 auto;
 		min-width:320px;
+		padding:10px;
 	}
-	
+
 	#sidebar {
 		overflow:hidden;
 		padding:10px;
+
 	}
-	
-		#sidebar #nav_list {
+
+		#nav_list {
 			display:none;
 		}
-		
+
 		#nav_form {
 			display:inline;
 		}
 
-	
+
 	#page {
-		margin:10px;
-		padding:10px;
+		padding:15px;
 		background-color:white;
-		border-radius:10px;
 		border:1px solid #bbb;
 	}
 
 }
 
-@media screen and (min-width: 481px) {
 
-	#site {
-		margin:0px auto;
-		min-width:860px;
-		max-width:1200px;
-		padding:20px;
-	}
 
-	h1 {
-		margin:auto;
-	}
-
-	body {
-		overflow-y: scroll;
-		text-align:center;
-	}
-	
-	.box {
-		background-color:white;
-		border:3px solid #FFF;
-		border-radius:30px;
-		box-shadow: 5px 5px 10px rgba(0,0,0,0.2), 0px 0px 10px rgba(0,0,0,0.2) inset;
-		moz-box-shadow: 5px 5px 10px rgba(0,0,0,0.2), 0px 0px 10px rgba(0,0,0,0.2) inset;
-		webkit-box-shadow: 5px 5px 10px rgba(0,0,0,0.2), 0px 0px 10px rgba(0,0,0,0.2) inset;
-	}
-	
-	#sidebar {
-		width:320px;
-		float:left;
-		padding:40px 0;
-		text-align:center;
-	}
-
-		#sidebar ul#nav_list {
-			width:200px;
-			margin:20px auto 0 auto;
-		}
-
-		#sidebar ul#nav_list a {
-			display:block;
-			font-size:18px;
-			color:black;
-			text-decoration:none;
-			width:190px;
-			padding:5px;
-		}
-
-		#sidebar ul#nav_list a:hover {
-			background-color: #E3E9FF;
-		}
-
-		#sidebar ul#nav_list a.active{
-			color:#777;
-		}
-		
-	#page {	
-		margin-left:350px;
-		padding:30px;
-		text-align:left;
-	}	
-
-}
 
 
 /******** MAIN LAYOUT **********************************/
@@ -201,7 +235,7 @@ p {
 }
 
 
-	
+
 
 label {
 	display:block;
@@ -314,7 +348,7 @@ fieldset .message {
 }
 
 
-	
+
 
 
 /*****  PLAN  ************************/
