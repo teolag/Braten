@@ -84,9 +84,7 @@ if(isset($user)) {
 			</section>
 
 			<section data-id="settings">
-				<h2>Inställningar</h2>
-				<article>xdf
-				</article>
+				<?php include "pages/settings.php";?>
 			</section>
 		</main>
 
@@ -107,7 +105,7 @@ if(isset($user)) {
 			</div>
 		</form>
 
-		<script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+		<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 		<script src="//cdn.xio.se/AjaXIO/dev/AjaXIO.js"></script>
 		<script src="/js/page.js"></script>
 		<script src="/js/braten.js"></script>
@@ -118,7 +116,7 @@ if(isset($user)) {
 		<script src="/pages/posts.js"></script>
 		<script src="/pages/post_edit.js"></script>
 		<script src="/pages/start.js"></script>
-		<script src="/pages/user_settings.js"></script>
+		<script src="/pages/settings.js"></script>
 		<script src="/js/main.js"></script>
 		<script>
 		<?php
@@ -128,16 +126,15 @@ if(isset($user)) {
 		echo "var easterWeeks = " . json_encode($easterWeeks, JSON_NUMERIC_CHECK) . ";";
 		?>
 		</script>
-		<script type="text/javascript">
-			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', 'UA-15831022-1']);
-			_gaq.push(['_trackPageview']);
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-			(function() {
-				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-			})();
+		  ga('create', 'UA-15831022-1', 'auto');
+		  ga('send', 'pageview');
+
 		</script>
 	</body>
 </html>

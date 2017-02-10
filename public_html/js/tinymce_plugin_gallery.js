@@ -13,9 +13,9 @@ tinymce.PluginManager.add('tinyGallery', function(editor, url) {
 			}, {
 				oninsert: function (files) {
 					console.log("image insert", files);
-					var html = "<div class='tinyGallery'>";
+					var html = "<ul class='tinyGallery'>";
 					for(var i=0, l=files.length; i<l; i++) {
-						html += '<img src="/file.php?id='+files[i].id+'" />';
+						html += '<li><img src="/file.php?id='+files[i].id+'" /></li>';
 					}
 					html+="</div>";
 					editor.insertContent(html);

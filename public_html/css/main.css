@@ -4,7 +4,7 @@ html, body {
 }
 
 body {
-	background: #ddd url(/img/blur-background.jpg) repeat center center;
+	background: #ddd url(/img/blur-background.jpg) repeat center center fixed;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -207,13 +207,10 @@ article.post h3 {
 .tinyGallery {
 	display: flex;
 	flex-flow: row wrap;
-	/*align-items: flex-start;*/
 	padding: 0;
 }
 
 .tinyGallery>li {
-	/*flex: auto;*/
-	width: 150px;
 	display: block;
 	list-style-type: none;
 	margin: 6px;
@@ -223,14 +220,14 @@ article.post h3 {
 	cursor: pointer;
 }
 .tinyGallery>li:hover {
-  box-shadow: 0 2px 3px rgba(0,0,0,.3);
-  border-color: rgb(241,247,234);
-  margin-top: 8px;
-  margin-bottom: 4px;
+	box-shadow: 0 2px 3px rgba(0,0,0,.3);
+	border-color: rgb(241,247,234);
+	margin-top: 8px;
+	margin-bottom: 4px;
 }
 .tinyGallery img {
-	width: 100%;
-	height: auto;
+	width: auto;
+	max-height: 150px;
 }
 
 

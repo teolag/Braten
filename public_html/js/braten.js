@@ -24,7 +24,11 @@ var braten = (function() {
 		}
 
 		console.log("try to show state", state, page);
-		pages[page].show(state);
+		if(!pages[page]) {
+			throw new Error("Page '" + page + "' not found. Nothing to show...");
+		} else {
+			pages[page].show(state);
+		}
 	},
 
 	goto = function(page, item, action) {
