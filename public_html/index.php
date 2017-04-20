@@ -21,8 +21,8 @@ $nav = array(
 		"title"=>"Årsplanering"
 	),
 	"manual" => array(
-		"url"=>"manual.pdf",
-		"title"=>"Manual PDF"
+		"url"=>"braten-rules.pdf",
+		"title"=>"Rutiner och regler PDF"
 	),
 	"logout" => array(
 		"url"=>"scripts/logout.php",
